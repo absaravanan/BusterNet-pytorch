@@ -1,0 +1,41 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BilinearUpSampling2D	../bustercore.py	/^class BilinearUpSampling2D( Layer ) :$/;"	kind:class	line:85
+BnInception	../bustercore.py	/^def BnInception(x, nb_inc=16, inc_filt_list=[(1,1), (3,3), (5,5)], name='uinc') :$/;"	kind:function	line:24
+BusterNetCore.py	../BusterNetCore.py	1;"	kind:file	line:1
+Conv2dSame	../BusterNetCore.py	/^class Conv2dSame(torch.nn.Module):$/;"	kind:class	line:17
+Net	../BusterNetCore.py	/^class Net(nn.Module):$/;"	kind:class	line:95
+Preprocess	../bustercore.py	/^class Preprocess( Layer ) :$/;"	kind:class	line:118
+ResizeBack	../bustercore.py	/^class ResizeBack( Layer ) :$/;"	kind:class	line:100
+SelfCorrelationPercPooling	../BusterNetCore.py	/^class SelfCorrelationPercPooling(nn.Module):$/;"	kind:class	line:80
+SelfCorrelationPercPooling	../bustercore.py	/^class SelfCorrelationPercPooling( Layer ) :$/;"	kind:class	line:46
+__init__	../BusterNetCore.py	/^    def __init__(self):$/;"	kind:member	line:96
+__init__	../BusterNetCore.py	/^    def __init__(self,  nb_pools=256, **kwargs):$/;"	kind:member	line:81
+__init__	../BusterNetCore.py	/^    def __init__(self, in_channels, out_channels, kernel_size, bias=True, padding_layer=torch.nn.ReflectionPad2d):$/;"	kind:member	line:18
+__init__	../bustercore.py	/^    def __init__( self, nb_pools=256, **kwargs ) :$/;"	kind:member	line:55
+__int__	../BusterNetCore.py	/^    def __int__(self):$/;"	kind:member	line:123
+build	../BusterNetCore.py	/^    def build( self, input_shape ) :$/;"	kind:member	line:84
+build	../bustercore.py	/^    def build( self, input_shape ) :$/;"	kind:member	line:58
+bustercore.py	../bustercore.py	1;"	kind:file	line:1
+call	../BusterNetCore.py	/^    def call( self, x, mask=None ) :$/;"	kind:member	line:86
+call	../bustercore.py	/^    def call( self, x ) :$/;"	kind:member	line:110
+call	../bustercore.py	/^    def call( self, x, mask=None ) :$/;"	kind:member	line:125
+call	../bustercore.py	/^    def call( self, x, mask=None ) :$/;"	kind:member	line:60
+call	../bustercore.py	/^    def call( self, x, mask=None ) :$/;"	kind:member	line:92
+compute_output_shape	../bustercore.py	/^    def compute_output_shape( self, input_shape ) :$/;"	kind:member	line:146
+compute_output_shape	../bustercore.py	/^    def compute_output_shape( self, input_shape ) :$/;"	kind:member	line:80
+compute_output_shape	../bustercore.py	/^    def compute_output_shape( self, input_shape ) :$/;"	kind:member	line:96
+compute_output_shape	../bustercore.py	/^    def compute_output_shape( self, input_shapes ) :$/;"	kind:member	line:114
+create_BusterNet_testing_model	../bustercore.py	/^def create_BusterNet_testing_model( weight_file=None ) :$/;"	kind:function	line:288
+create_cmfd_manipulation_branch	../bustercore.py	/^def create_cmfd_manipulation_branch( img_shape=(256,256,3),$/;"	kind:function	line:229
+create_cmfd_similarity_branch	../bustercore.py	/^def create_cmfd_similarity_branch( img_shape=(256,256,3),$/;"	kind:function	line:149
+forward	../BusterNetCore.py	/^    def forward(self, x):$/;"	kind:member	line:105
+forward	../BusterNetCore.py	/^    def forward(self, x):$/;"	kind:member	line:26
+maniNet	../BusterNetCore.py	/^class maniNet(nn.Module):$/;"	kind:class	line:117
+net	../BusterNetCore.py	/^net = Net()$/;"	kind:variable	line:115
+std_norm_along_chs	../bustercore.py	/^def std_norm_along_chs(x) :$/;"	kind:function	line:13
+vgg16	../BusterNetCore.py	/^vgg16 = models.vgg16()$/;"	kind:variable	line:10
