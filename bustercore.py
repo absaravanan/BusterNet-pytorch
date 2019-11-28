@@ -319,3 +319,11 @@ def create_BusterNet_testing_model( weight_file=None ) :
         except Exception as e :
             print("INFO: fail to load pretrained weights from {} for reason: {}".format( weight_file, e ))
     return model
+
+if __name__ == "__main__":
+    model = create_cmfd_similarity_branch( img_shape=(256,256,3),
+                                    nb_pools=100,
+                                    name='simiDet' )
+
+    print ("printing model.........")
+    print (model.summary())
