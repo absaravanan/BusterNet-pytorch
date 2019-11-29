@@ -16,7 +16,7 @@ from torchsummary import summary
 
 class Conv2dSame(torch.nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size, bias=True, padding_layer=torch.nn.ReflectionPad2d):
-        super().__init__()
+        super(Conv2dSame, self).__init__()
         ka = kernel_size // 2
         kb = ka - 1 if kernel_size % 2 == 0 else ka
         self.net = torch.nn.Sequential(
@@ -113,9 +113,8 @@ class SelfCorrelationPercPooling(nn.Module):
 class BusterNet(torch.nn.Module):
     '''Create the similarity branch for copy-move forgery detection
     '''
-
-    def __int__(self):
-        super().__init__()
+    def __init__(self):
+        super(BusterNet, self).__init__()
         self.conv1 = Conv2dSame(3, 64, 3)
         self.conv2 = Conv2dSame(64, 128, 3)
         self.conv3 = Conv2dSame(128, 256, 3)
@@ -123,15 +122,19 @@ class BusterNet(torch.nn.Module):
 
         self.pool = nn.MaxPool2d(2, 2)
 
-        self.layerNorm = nn.LayerNorm(-1)
+        # self.layerNorm = nn.LayerNorm(-1)
 
-        self.instSelfCorrelationPercPooling = SelfCorrelationPercPooling()
+        # self.instSelfCorrelationPercPooling = SelfCorrelationPercPooling()
 
-        self.batchNorm1 = nn.BatchNorm2d()
+        # self.batchNorm1 = nn.BatchNorm2d()
 
     def forward(self, x):
         x = self.conv1(x)
+        print (1)
+        print (x.size())
         x = self.conv1(x)
+        print (2)
+        print (x.size())
         x = self.pool(x)
 
         x = self.conv2(x)
@@ -153,7 +156,8 @@ class BusterNet(torch.nn.Module):
 
 if __name__ == "__main__":
     thisNet = BusterNet()
-    print (thisNet)
-    # summary(thisNet, input_size=(3, 256, 256))
-
+    # print (thisNet)
+    summary(thisNet, input_size=(3, 256, 256))
+    # for n, p in thisNet.named_parameters():
+    #     print(n, p.shape)
 
