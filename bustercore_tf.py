@@ -62,7 +62,14 @@ class SelfCorrelationPercPooling( Layer ) :
         bsize, nb_rows, nb_cols, nb_feats = K.int_shape( x )
         nb_maps = nb_rows * nb_cols
         # self correlation
+        print ("nbmaps=",nb_maps)
+        print ("nbfeats=",nb_feats)
+
         x_3d = K.reshape( x, tf.stack( [ -1, nb_maps, nb_feats ] ) )
+
+        print (x_3d)
+
+        print ("x_3d", x_3d.shape)
         x_corr_3d = tf.matmul( x_3d, x_3d, transpose_a = False, transpose_b = True ) / nb_feats
         x_corr = K.reshape( x_corr_3d, tf.stack( [ -1, nb_rows, nb_cols, nb_maps ] ) )
         # argsort response maps along the translaton dimension
@@ -71,11 +78,21 @@ class SelfCorrelationPercPooling( Layer ) :
         else :
             ranks = tf.range( 1, nb_maps, dtype = 'int32' )
         x_sort, _ = tf.nn.top_k( x_corr, k = nb_maps, sorted = True )
+        print ("x_sort=",x_sort.shape)
         # pool out x features at interested ranks
         # NOTE: tf v1.1 only support indexing at the 1st dimension
         x_f1st_sort = K.permute_dimensions( x_sort, ( 3, 0, 1, 2 ) )
+        print ("x_f1st_sort=",x_f1st_sort.shape)
+        print ("ranks=",ranks.shape)
+        print (ranks)
+        with tf.Session() as sess:  print(ranks.eval()) 
+
         x_f1st_pool = tf.gather( x_f1st_sort, ranks )
+        print (x_f1st_pool.shape)
+
         x_pool = K.permute_dimensions( x_f1st_pool, ( 1, 2, 3, 0 ) )
+        print ("x_pooled=",x_pool.shape)
+
         return x_pool
     def compute_output_shape( self, input_shape ) :
         bsize, nb_rows, nb_cols, nb_feats = input_shape
@@ -200,6 +217,7 @@ def create_cmfd_similarity_branch( img_shape=(256,256,3),
     # Deconv x4
     f64a = BilinearUpSampling2D( name=bname+'_bx4a')( f32 )
     f64b = BilinearUpSampling2D( name=bname+'_bx4b')( dx32 )
+    
     f64  = Concatenate(axis=-1, name=name+'_dx4_m')([f64a, f64b])
     dx64 = BnInception( f64, 4, patch_list, name=bname+'_dx4')
     # Deconv x8
@@ -324,6 +342,11 @@ if __name__ == "__main__":
     model = create_cmfd_similarity_branch( img_shape=(256,256,3),
                                     nb_pools=100,
                                     name='simiDet' )
+                                    # create_cmfd_manipulation_branch
 
+    # model = create_cmfd_manipulation_branch( img_shape=(256,256,3),
+    #                                 name='maniDet' )
+
+    # model = create_BusterNet_testing_model()
     print ("printing model.........")
     print (model.summary())
