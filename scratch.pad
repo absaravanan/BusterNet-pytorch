@@ -1,0 +1,6 @@
+python3 demo.py --image /home/ai/ai/data/coco/aadhaar_mask_augmented_4/train/images/5iNzKMTQhy3vkgWW01CZC4NXXmiRWWTfpNhGHmicHWMrPjWdzx_0.jpg --checkpoint_path /home/ai/ai/abs/BiSeNet/checkpoints_18_sgd/latest_dice_loss.pth
+
+
+
+1.58
+
